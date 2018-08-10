@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  <h2>BHI Viajes</h2>
+  <button ion-button (click)="addViaje()">+ Viaje</button>
+  <hr>
+  <!-- <ion-input type="text" placeholder="Filtro" class="white-background"></ion-input> -->
+
+ <ion-card *ngFor="let viaje of viajes | async">
+   <img src="{{viaje.image}}" />
+   <ion-card-content>
+     <ion-card-title>
+        {{viaje.name}}
+     </ion-card-title>
+     <p>
+       <strong>Salida:</strong> {{viaje.departureDate.toDate().toLocaleDateString()}} <br/>
+       <strong>Regreso:</strong> {{viaje.returnDate.toDate().toLocaleDateString()}} <br />
+     </p>
+     <button ion-button outline item-end icon-start (click)="selectViaje(viaje)">
+        <ion-icon name="bus"></ion-icon>
+        Info
+      </button>
+   </ion-card-content>
+ </ion-card>
+</ion-content>

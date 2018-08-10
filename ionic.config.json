@@ -1,0 +1,7 @@
+{
+  "name": "bhi",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
