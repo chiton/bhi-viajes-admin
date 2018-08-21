@@ -14,7 +14,12 @@ export class AuthenticationProvider {
 	}
 
 	public signInWithGoogle() {
-		return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
+		if(!this.user){
+			return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
+		}
+		else{
+			alert("Already auth!");
+		}
 	}
 
 	private oauthSignIn(provider: AuthProvider) {
@@ -30,7 +35,8 @@ export class AuthenticationProvider {
 					// Handle Errors here.
 					alert(error.message);
 				});
-			});
+			}).
+			catch(error => { alert(error.message);});
 		}
 	}
 }

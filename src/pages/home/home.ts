@@ -16,13 +16,11 @@ export class HomePage {
   private viajes : Observable<any[]>;
   
   constructor(private navCtrl: NavController, 
-    private dataProvider: DataProvider,
-    private authenticationProvider: AuthenticationProvider) {
+    private dataProvider: DataProvider) {
   }
 
   ionViewDidLoad() {
     this.viajes =this.dataProvider.getViajes();
-    this.loginWithGoogle();
   }
 
   private selectViaje(viaje : Viaje)
@@ -33,9 +31,5 @@ export class HomePage {
 
   private addViaje() {
       this.navCtrl.push(EditorPage);
-  }
-
-  private loginWithGoogle() {
-    this.authenticationProvider.signInWithGoogle();
   }
 }

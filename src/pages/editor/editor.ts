@@ -71,7 +71,7 @@ export class EditorPage {
         this.navCtrl.pop();
       })
       .catch((error) =>{
-        console.log(error);
+        alert(error.message);
       })
     }
   }

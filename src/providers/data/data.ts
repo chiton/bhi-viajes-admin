@@ -26,16 +26,19 @@ export class DataProvider {
   }
 
   public addViaje(viaje : Viaje){
-    this.collection.add(viaje);
+    this.collection.add(viaje)
+    .catch(error => { alert(error.message); });
   }
 
   public removeViaje(viaje : Viaje){
-    this.collection.doc(viaje.id).delete();
+    this.collection.doc(viaje.id).delete()
+    .catch(error => { alert(error.message); });
   }
 
   public updateViaje(viaje : Viaje){
     let id : string = viaje.id;
     delete viaje.id;
-    this.collection.doc(id).update(viaje);
+    this.collection.doc(id).update(viaje)
+    .catch(error => { alert(error.message); });
   }
 }
