@@ -20,12 +20,20 @@
           <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
         <ion-item>
+            <ion-label>Precio</ion-label>
+            <ion-input formControlName="price"></ion-input>
+        </ion-item>
+        <ion-item>
             <ion-label>Fecha de Salida</ion-label>
             <ion-datetime displayFormat="DD/MM/YYYY" formControlName="departureDate"></ion-datetime>
         </ion-item>
         <ion-item>
             <ion-label>Fecha de Regreso</ion-label>
             <ion-datetime displayFormat="DD/MM/YYYY" formControlName="returnDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>Resumen</ion-label>
+            <ion-textarea formControlName="summary"></ion-textarea>
         </ion-item>
         <ion-item>
             <ion-label>Detalles</ion-label>

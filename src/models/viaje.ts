@@ -10,4 +10,6 @@ export class Viaje {
     coord: firebase.firestore.GeoPoint;
     image: string;
     details: string;
+    summary: string;
+    price: string;
 }
