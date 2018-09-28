@@ -40,6 +40,8 @@ export class EditorPage {
         lastEntry: [viajeToEdit ? viajeToEdit.lastEntry : firebase.firestore.Timestamp.fromDate(new Date())],
         details: [viajeToEdit ? viajeToEdit.details : '', Validators.required],
         image: [viajeToEdit ? viajeToEdit.image : ''],
+        price:  [viajeToEdit ? viajeToEdit.price : '', Validators.required],
+        summary: [viajeToEdit ? viajeToEdit.summary : '', Validators.required]
       });
   }
 
