@@ -40,7 +40,7 @@ export class EditorPage {
         lastEntry: [viajeToEdit ? viajeToEdit.lastEntry : firebase.firestore.Timestamp.fromDate(new Date())],
         details: [viajeToEdit ? viajeToEdit.details : '', Validators.required],
         image: [viajeToEdit ? viajeToEdit.image : ''],
-        price:  [viajeToEdit ? viajeToEdit.price : '', Validators.required],
+        price:  [viajeToEdit ? viajeToEdit.price : ''],
         summary: [viajeToEdit ? viajeToEdit.summary : '', Validators.required]
       });
   }
@@ -49,10 +49,29 @@ export class EditorPage {
     
   }
 
+  private convertISO8601toDate(dtstr : string) : Date {
+    
+      // replace anything but numbers by spaces
+      dtstr = dtstr.replace(/\D/g," ");
+    
+      // trim any hanging white space
+      dtstr = dtstr.replace(/\s+$/,"");
+    
+      // split on space
+      let dtcomps : number[] = dtstr.split(" ").map(Number);
+        
+      // modify month between 1 based ISO 8601 and zero based Date
+      dtcomps[1]--;
+
+      var convdt = new Date(dtcomps[0], dtcomps[1], dtcomps[2]);
+    
+      return convdt;
+    }
+
   submit() : any {
     let item : Viaje = this.viaje.value as Viaje;
-    let departureDate = firebase.firestore.Timestamp.fromDate(new Date(this.viaje.value.departureDate));
-    let returnDate = firebase.firestore.Timestamp.fromDate(new Date(this.viaje.value.returnDate));
+    let departureDate = firebase.firestore.Timestamp.fromDate(this.convertISO8601toDate(this.viaje.value.departureDate));
+    let returnDate = firebase.firestore.Timestamp.fromDate(this.convertISO8601toDate(this.viaje.value.returnDate));
 
     item.departureDate = departureDate;
     item.returnDate = returnDate;

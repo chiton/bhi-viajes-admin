@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import { Platform } from 'ionic-angular';
 
 @Injectable()
 export class AuthenticationProvider {
   private user: firebase.User;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private platform : Platform) {
 		afAuth.authState.subscribe(user => {
 			this.user = user;
+			console.log(this.user);
 		});
 	}
 
@@ -23,7 +25,7 @@ export class AuthenticationProvider {
 	}
 
 	private oauthSignIn(provider: AuthProvider) {
-		if (!(<any>window).cordova) {
+		if (!(<any>window).cordova || this.platform.is("core")) {
 			return this.afAuth.auth.signInWithPopup(provider);
 		} else {
 			return this.afAuth.auth.signInWithRedirect(provider)

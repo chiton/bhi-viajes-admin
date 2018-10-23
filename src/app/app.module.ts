@@ -22,6 +22,8 @@ import { environment } from '../environments/environment';
 import { DataProvider } from '../providers/data/data';
 import { MapProvider } from '../providers/map/map';
 import { AuthenticationProvider } from '../providers/auth/authentication';
+import { TriviaPage } from '../pages/trivia/trivia';
+import { TriviaResponsesPage } from '../pages/trivia-responses/trivia-responses';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AuthenticationProvider } from '../providers/auth/authentication';
     DetailsPage,
     HomePage,
     TabsPage,
-    EditorPage
+    EditorPage,
+    TriviaPage,
+    TriviaResponsesPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { AuthenticationProvider } from '../providers/auth/authentication';
     DetailsPage,
     HomePage,
     TabsPage,
-    EditorPage
+    EditorPage,
+    TriviaPage,
+    TriviaResponsesPage
   ],
   providers: [
     StatusBar,

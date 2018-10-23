@@ -24,9 +24,10 @@
       <ion-icon name="trash"></ion-icon>
   </button>
   <hr>
+  <strong>Precio:</strong> {{viaje.price}} <br/>
   <strong>Salida:</strong> {{viaje.departureDate.toDate().toLocaleDateString()}}<br/>
   <strong>Regreso:</strong> {{viaje.returnDate.toDate().toLocaleDateString()}}
-  <p>{{viaje.details}}</p>
+  <p [innerHTML]="viaje.details"></p>
 <strong>Bus último registro:</strong> {{viaje.lastEntry.toDate().toLocaleString()}}
   <div id="map"></div>
 </ion-content>

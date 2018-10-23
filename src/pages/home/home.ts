@@ -29,6 +29,16 @@ export class HomePage {
       viaje: viaje});
   }
 
+  private displayEnCuro(viaje : Viaje) : boolean {
+    let currentDate : Date = new Date();
+    let departureDate : Date = viaje.departureDate.toDate();
+    let returnDate : Date = viaje.returnDate.toDate();
+    departureDate.setHours(0, 0);
+    returnDate.setHours(23, 59);
+
+    return  (currentDate >= departureDate) &&  (currentDate <= returnDate);
+  }
+
   private addViaje() {
       this.navCtrl.push(EditorPage);
   }

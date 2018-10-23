@@ -10,20 +10,15 @@
   <hr>
   <!-- <ion-input type="text" placeholder="Filtro" class="white-background"></ion-input> -->
 
- <ion-card *ngFor="let viaje of viajes | async">
+ <ion-card *ngFor="let viaje of viajes | async" (click)="selectViaje(viaje)">
    <img src="{{viaje.image}}" />
+   <div class="price">{{viaje.price}}</div>
+   <div class="en-curso" *ngIf="displayEnCuro(viaje)">EN CURSO</div>
    <ion-card-content>
      <ion-card-title>
         {{viaje.name}}
      </ion-card-title>
-     <p>
-       <strong>Salida:</strong> {{viaje.departureDate.toDate().toLocaleDateString()}} <br/>
-       <strong>Regreso:</strong> {{viaje.returnDate.toDate().toLocaleDateString()}} <br />
-     </p>
-     <button ion-button outline item-end icon-start (click)="selectViaje(viaje)">
-        <ion-icon name="bus"></ion-icon>
-        Info
-      </button>
+      <p>{{viaje.summary}}<br/>Salida:  {{viaje.departureDate.toDate().toLocaleDateString()}}</p>
    </ion-card-content>
  </ion-card>
 </ion-content>

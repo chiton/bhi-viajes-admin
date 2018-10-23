@@ -1,9 +1,33 @@
 page-home {
-    .card-background-page {
-        background-color: whitesmoke;
+    .content {
+         background: linear-gradient(to top, silver 0%, white 100%) !important;
     }
 
-    .white-background {
-        background-color: white;
+    ion-card {
+      position: relative;
+    }
+
+     .price {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1.6em;
+        width: 40%;
+        font-weight: bold;
+        color: #fff;
+        background-color: red;
+        text-align: center;
+  }
+
+    .en-curso {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 1.6em;
+      width: 40%;
+      font-weight: bold;
+      color: #fff;
+      background-color: green;
+      text-align: center;
     }
 }

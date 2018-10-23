@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Trivia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button (click)="seeResponses()">Ver Respuestas</button>
+  <form [formGroup]="trivia" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Premio</ion-label>
+      <ion-textarea type="text" formControlName="prize"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label>Trivia</ion-label>
+        <ion-textarea formControlName="trivia"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!trivia.valid">Submit</button>
+  </form>
+</ion-content>
